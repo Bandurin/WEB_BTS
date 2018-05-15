@@ -1,0 +1,64 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - microblog</title>
+        {% else %}
+        <title>microblog</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Microblog:
+            <a href="{{ url_for('index') }}">Home</a>
+            {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+
+
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+
+        {% block scripts %}
+
+
+        <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button>
+        <script type=text/javascript src="{{
+            url_for('static', filename='jquery.js') }}"></script>
+        <script>
+            function get_time() {
+                $.post('/time', {}).done(function(response) {
+                    $(destElem).text(response['text'])
+                }).fail(function() {
+                    $(destElem).text("{{'Error: Could not contact server'}}");
+                });
+            }
+        </script>
+
+         <script>
+            function get_time2() {
+                $.post('/time2', {}).done(function(response) {
+                    $(destElem).text(response['text'])
+                }).fail(function() {
+                    $(destElem).text("{{'Error: Could not contact server'}}");
+                });
+            }
+        </script>
+
+{% endblock %}
+
+    </body>
+</html>
