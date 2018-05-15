@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
 
 {% extends "base.html" %}
 
@@ -6,9 +7,17 @@
 
     <h1> Sevice IP address {{sensor.sen1}} </h1>
 
+    <span id=destElem>После нажатия на GO тут будет время</span>
     <h1>Hi, {{ user.username }}!</h1>
+
     {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
+
+    <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button>
+
+
+
+
 
 {% endblock %}

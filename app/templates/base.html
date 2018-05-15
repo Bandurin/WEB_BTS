@@ -35,9 +35,6 @@
         {% block scripts %}
 
 
-        <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button>
-        <script type=text/javascript src="{{
-            url_for('static', filename='jquery.js') }}"></script>
         <script>
             function get_time() {
                 $.post('/time', {}).done(function(response) {
@@ -48,7 +45,7 @@
             }
         </script>
 
-         <script>
+        <script>
             function get_time2() {
                 $.post('/time2', {}).done(function(response) {
                     $(destElem).text(response['text'])
