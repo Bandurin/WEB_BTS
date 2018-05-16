@@ -1,5 +1,10 @@
 <html>
     <head>
+        <script type="text/javascript" src="{{url_for('static', filename='jquery.js') }}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='socket.io.js') }}"></script>
+        <script type="text/javascript" charset="utf-8"></script>
+
+
         {% if title %}
         <title>{{ title }} - microblog</title>
         {% else %}

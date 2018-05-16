@@ -11,7 +11,7 @@ from app.models import User
 from datetime import datetime
 from flask import jsonify
 import netifaces as ni
-
+import random
 
 @app.route('/')
 @app.route('/index')
@@ -55,7 +55,6 @@ def time2():
     return time
 
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -77,3 +76,4 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+

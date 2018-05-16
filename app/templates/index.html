@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
 
 {% extends "base.html" %}
 
@@ -16,8 +15,12 @@
 
     <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button>
 
+   <script>
+    var socket = new WebSocket('ws://' + document.domain + ':' + 8765+'/test');
+    socket.on('connect', function() {
+       socket.sen('connect', {data: 'I\'m connected!'});
+    });
 
-
-
+    </script>
 
 {% endblock %}

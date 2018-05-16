@@ -10,3 +10,4 @@ def make_shell_context():
     return {'db': db, 'User': User, 'Post': Post}
 
 app.run(host='0.0.0.0', port=8080, debug=True)
+

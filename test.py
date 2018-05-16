@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
-hash = '1234'
+import asyncio
+import websockets
 
-def check(passwd,hash):
-    if passwd == hash:
-        return True
-    else:
-        return False
+async def hello():
+    async with websockets.connect('ws://localhost:8765') as websocket:
+        name = input("What's your name? ")
+        await websocket.send(name)
+        print("> {}".format(name))
 
+        greeting = await websocket.recv()
+        print("< {}".format(greeting))
 
-
-print(check('1s234',hash))
+asyncio.get_event_loop().run_until_complete(hello())
