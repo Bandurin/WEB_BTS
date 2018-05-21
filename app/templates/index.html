@@ -13,14 +13,49 @@
         <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
 
-    <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button>
+    <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button><br>
 
-   <script>
-    var socket = new WebSocket('ws://' + document.domain + ':' + 8765+'/test');
-    socket.on('connect', function() {
-       socket.sen('connect', {data: 'I\'m connected!'});
-    });
+    <table align ="center" width="100%" border="1">
+	    <tr>
+		    <td colspan="2">
+	    	Пример таблицы
+    		</td>
+	    </tr>
+	    <tr>
+		    <td>
+		    Данные с сенсора
+		    </td>
+		    <td id ='table1'>
+		    Столбец 2
+		    </td>
+	    </tr>
+    </table>
 
-    </script>
+<p>
+    <span id=destElem2>Данные от сокета должны быть тут</span><a>
+    <div id="content"></div><a>
+</p>
+
+<script>
+    var ws = new WebSocket('ws://' + document.domain + ':' + 8765+'/sensor');
+
+
+    ws.onmessage = function (event) {
+                content = document.getElementById('content');
+                var datajson = JSON.parse(event.data);
+            <!--console.log(datajson);-->
+                var messages = '<div>' + datajson['data2']+ '</div>';
+                content.innerHTML = messages;
+
+                content2 = document.getElementById('table1');
+                var message2 = datajson['data2'];
+                content2.innerHTML=message2;
+
+            };
+
+
+</script>
+
+
 
 {% endblock %}

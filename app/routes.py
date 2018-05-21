@@ -39,6 +39,7 @@ def index():
         }
     ]
 
+
     return render_template('index.html',title = 'HOME', sensor = sensor, posts = posts, user = user)
 
 
