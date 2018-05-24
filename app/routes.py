@@ -12,6 +12,7 @@ from datetime import datetime
 from flask import jsonify
 import netifaces as ni
 import random
+from connect import GoBts
 
 @app.route('/')
 @app.route('/index')
@@ -19,8 +20,8 @@ import random
 def index():
 
 
-    ni.ifaddresses('enp8s0')
-    IP = ni.ifaddresses('enp8s0')[ni.AF_INET][0]['addr']
+    ni.ifaddresses('wlan0')
+    IP = ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr']
     sensor = {'sen1':IP}
 
     user = {'username': 'Эльдар Рязанов'}
@@ -42,17 +43,51 @@ def index():
     return render_template('index.html',title = 'HOME', sensor = sensor, posts = posts, user = user)
 
 
-@app.route('/time', methods=['POST'])
+@app.route('/goForward', methods=['POST'])
 @login_required
-def time():
-    time= jsonify({'text': str(datetime.now())})
-    return time
+def goForward():
+    var = [1,110,0]
+    bts = GoBts()
+    bts.writeNumber(var)
+    #time= jsonify({'text': str(datetime.now())})
+    return 'GO'
 
-@app.route('/time2', methods=['POST'])
+@app.route('/goBackward', methods=['POST'])
 @login_required
-def time2():
-    time= jsonify({'text': str(datetime.now())})
-    return time
+def goBackward():
+    var = [2,110,0]
+    bts = GoBts()
+    bts.writeNumber(var)
+    #time= jsonify({'text': str(datetime.now())})
+    return 'GO'
+
+@app.route('/goLeft', methods=['POST'])
+@login_required
+def goLeft():
+    var = [3,150,0]
+    bts = GoBts()
+    bts.writeNumber(var)
+    #time= jsonify({'text': str(datetime.now())})
+    return 'GO'
+
+@app.route('/goRight', methods=['POST'])
+@login_required
+def goRight():
+    var = [4,150,0]
+    bts = GoBts()
+    bts.writeNumber(var)
+    #time= jsonify({'text': str(datetime.now())})
+    return 'GO'
+
+
+@app.route('/stop', methods=['POST'])
+@login_required
+def stop():
+    var = [0,0,0]
+    bts = GoBts()
+    bts.writeNumber(var)
+   # time= jsonify({'text': str(datetime.now())})
+    return 'STOP'
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -76,4 +111,3 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('login'))
-

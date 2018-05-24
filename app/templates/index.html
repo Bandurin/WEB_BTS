@@ -7,13 +7,17 @@
     <h1> Sevice IP address {{sensor.sen1}} </h1>
 
     <span id=destElem>После нажатия на GO тут будет время</span>
-    <h1>Hi, {{ user.username }}!</h1>
+  <!--  <h1>Hi, {{ user.username }}!</h1>
 
     {% for post in posts %}
         <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    {% endfor %}-->
 
-    <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button>
+    <button onmousedown="goForward()" onmouseup="stop()" id="Forward">Forward</button>
+    <button onmousedown="goBackward()" onmouseup="stop()" id="Backward">Backward</button>
+    <button onmousedown="goLeft()" onmouseup="stop()" id="Left">Left</button>
+    <button onmousedown="goRight()" onmouseup="stop()" id="Right">Right</button>
+
 
    <script>
     var socket = new WebSocket('ws://' + document.domain + ':' + 8765+'/test');

@@ -41,8 +41,8 @@
 
 
         <script>
-            function get_time() {
-                $.post('/time', {}).done(function(response) {
+            function goForward() {
+                $.post('/goForward', {}).done(function(response) {
                     $(destElem).text(response['text'])
                 }).fail(function() {
                     $(destElem).text("{{'Error: Could not contact server'}}");
@@ -51,8 +51,39 @@
         </script>
 
         <script>
-            function get_time2() {
-                $.post('/time2', {}).done(function(response) {
+            function goBackward() {
+                $.post('/goBackward', {}).done(function(response) {
+                    $(destElem).text(response['text'])
+                }).fail(function() {
+                    $(destElem).text("{{'Error: Could not contact server'}}");
+                });
+            }
+        </script>
+
+
+        <script>
+            function goLeft() {
+                $.post('/goLeft', {}).done(function(response) {
+                    $(destElem).text(response['text'])
+                }).fail(function() {
+                    $(destElem).text("{{'Error: Could not contact server'}}");
+                });
+            }
+        </script>
+
+        <script>
+            function goRight() {
+                $.post('/goRight', {}).done(function(response) {
+                    $(destElem).text(response['text'])
+                }).fail(function() {
+                    $(destElem).text("{{'Error: Could not contact server'}}");
+                });
+            }
+        </script>
+
+        <script>
+            function stop() {
+                $.post('/stop', {}).done(function(response) {
                     $(destElem).text(response['text'])
                 }).fail(function() {
                     $(destElem).text("{{'Error: Could not contact server'}}");
