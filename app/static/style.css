@@ -1,0 +1,173 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#leftcol { /* Левая колонка */
+ float: left; /* Обтекание справа */
+ width: 650px; /* Ширина колонки */
+}
+#rightcol { /* Правая колонка */
+ margin-left: 650px; /* Отступ слева */
+}
+
+#control_buttons {
+    width: 250px;
+}
+
+.black {
+	background: #000;
+	padding: 20px 20px 10px 20px;
+}
+
+.white {
+	background: #fff;
+	padding: 30px 20px 20px 20px;
+}
+
+.button {
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+	padding: 12px 20px;
+	font-size: 18px;
+	border-radius: 10px;
+	background-color: #666666;
+	box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	position: relative;
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	display: inline-block;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
+	margin-bottom: 40px;
+}
+
+.button:hover {
+	box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+}
+
+.rectangular {
+	border-radius: 10px / 35px;
+}
+
+.button {
+	margin-right: 20px;
+}
+
+.button:active {
+	top: 7px;
+	box-shadow: 0 2px 0 #393939, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+.orange {
+	background-color: #c37846;
+	box-shadow: 0 5px 5px #855031, 0 9px 0 #5e3a25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+}
+
+.orange:hover {
+	box-shadow: 0 5px 5px #855031, 0 9px 0 #5e3a25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+}
+
+.orange:active {
+	box-shadow: 0 2px 0 #5e3a25, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+form
+{
+	margin: 40px 0;
+}
+
+var
+{
+	clear: both;
+	margin: 0 50px;
+}
+
+.switch:empty
+{
+	margin-left: -999px;
+}
+
+.switch:empty ~ label
+{
+	position: relative;
+	float: left;
+	line-height: 1.6em;
+	text-indent: 4em;
+	margin: 0.2em 0;
+	cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.switch:empty ~ label:before,
+.switch:empty ~ label:after
+{
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: ' ';
+	width: 3.6em;
+	background-color: #c33;
+	border-radius: 0.3em;
+	box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
+	-webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+}
+
+.switch:empty ~ label:after
+{
+	width: 1.4em;
+	top: 0.1em;
+	bottom: 0.1em;
+	margin-left: 0.1em;
+	background-color: #fff;
+	border-radius: 0.15em;
+	box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
+}
+
+.switch:checked ~ label:before
+{
+	background-color: #393;
+}
+
+.switch:checked ~ label:after
+{
+	margin-left: 2.1em;
+}
+
+#butom1 {
+	position:absolute;
+	top: 600px;
+	left: 160px;
+	}
+#butom2 {
+	position:absolute;
+	top: 660px;
+	left: 90px;
+	}
+#butom3 {
+	position:absolute;
+	top: 660px;
+	left: 160px;
+	}
+#butom4 {
+    position:absolute;
+	top: 660px;
+	left: 220px;
+	}
+#butom5 {
+    position:absolute;
+	top: 600px;
+	left: 350px;
+	}
+#butom6 {
+    position:absolute;
+	top: 660px;
+	left: 350px;
+	}
+

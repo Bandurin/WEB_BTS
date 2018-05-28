@@ -20,9 +20,7 @@ from connect import GoBts
 def index():
 
 
-    ni.ifaddresses('wlan0')
-    IP = ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr']
-    sensor = {'sen1':IP}
+    sensor = {'sen1':"ХЗ"}
 
     user = {'username': 'Эльдар Рязанов'}
     posts = [

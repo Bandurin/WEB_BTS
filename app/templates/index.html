@@ -4,44 +4,58 @@
 
 {% block content %}
 
-    <h1> Sevice IP address {{sensor.sen1}} </h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <span id=destElem>После нажатия на GO тут будет время</span>
-  <!--  <h1>Hi, {{ user.username }}!</h1>
 
-    {% for post in posts %}
-        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}-->
+	<div id="header">
+		<h1> Sevice IP address {{sensor.sen1}} </h1>
+	</div>
 
-    <button onmousedown="goForward()" onmouseup="stop()" id="Forward">Forward</button>
-    <button onmousedown="goBackward()" onmouseup="stop()" id="Backward">Backward</button>
-    <button onmousedown="goLeft()" onmouseup="stop()" id="Left">Left</button>
-    <button onmousedown="goRight()" onmouseup="stop()" id="Right">Right</button>
+	<div id="content">
 
-<<<<<<< HEAD
-=======
-    <button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button><br>
+		<div id="leftcol">
+			<img  src="http://pytevoi.ru:8080/?action=stream" width="640px" height="480px">
+		</div>
 
-    <table align ="center" width="100%" border="1">
-	    <tr>
-		    <td colspan="2">
-	    	Пример таблицы
-    		</td>
-	    </tr>
-	    <tr>
-		    <td>
-		    Данные с сенсора
-		    </td>
-		    <td id ='table1'>
-		    Столбец 2
-		    </td>
-	    </tr>
-    </table>
+		<div id="rightcol">
+			<div id="control_buttons">
+				<div>
+					<button onmousedown="goForward()" 	onmouseup="stop()" id="Forward" style="margin-left: 85px;"	class="button orange rectangular">&uarr;</button>
+				</div>
 
-<p>
-    <span id=destElem2>Данные от сокета должны быть тут</span><a>
-    <div id="content"></div><a>
-</p>
+				<div>
+					<button onmousedown="goLeft()" 		onmouseup="stop()" id="Left" 		class="button orange rectangular">&larr;</button>
+					<button onmousedown="goBackward()" 	onmouseup="stop()" id="Backward" 	class="button orange rectangular">&darr;</button>
+					<button onmousedown="goRight()" 	onmouseup="stop()" id="Right" 		class="button orange rectangular" style="width">&rarr;</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+    <!--<button onmousedown="get_time()" onmouseup="get_time2()" id="button">GO</button><br>-->
+	<!--<span id=destElem>После нажатия на GO тут будет время</span>-->
+    <!--<table align ="center" width="100%" border="1">-->
+	    <!--<tr>-->
+		    <!--<td colspan="2">-->
+	    	<!--Пример таблицы-->
+    		<!--</td>-->
+	    <!--</tr>-->
+	    <!--<tr>-->
+		    <!--<td>-->
+		    <!--Данные с сенсора-->
+		    <!--</td>-->
+		    <!--<td id ='table1'>-->
+		    <!--Столбец 2-->
+		    <!--</td>-->
+	    <!--</tr>-->
+    <!--</table>-->
+
+<!--<p>-->
+    <!--<span id=destElem2>Данные от сокета должны быть тут</span><a>-->
+    <!--<div id="content"></div><a>-->
+<!--</p>-->
 
 <script>
     var ws = new WebSocket('ws://' + document.domain + ':' + 8765+'/sensor');
@@ -62,7 +76,6 @@
 
 
 </script>
->>>>>>> 2979cf5edde668ac67177cb4e9b50e61107ed18e
 
 
 
